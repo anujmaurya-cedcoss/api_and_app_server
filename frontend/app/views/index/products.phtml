@@ -1,0 +1,35 @@
+<?php
+if ($data != '') {
+    $data = json_decode($data);
+}
+if ($data == null) {
+    echo "<h3>You can't send multiple request within 30 seconds</h3>";
+    die;
+} ?>
+
+<a href='/index/logout/' class='d-flex float-right btn-danger btn my-3'>Logout</a>
+<h3 class='my-5'>List of all the products</h3>
+<table class="table table-striped">
+    <caption>Product Table</caption>
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php
+        if (sizeof($data) < 1) {
+            echo "Nothing here !";
+        } else {
+            foreach ($data as $key => $value) {
+                echo "<tr>
+                <th scope=\"row\">$value->id</th>
+                <td>$value->name</td>
+                </tr>";
+            }
+        }
+        ?>
+    </tbody>
+</table>

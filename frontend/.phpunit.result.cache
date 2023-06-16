@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Tests\\Unit\\IndexControllerTest::testAdd":4,"Tests\\Unit\\IndexControllerTest::testsignupAction":4,"Tests\\Unit\\IndexControllerTest::testLogOutAction":4},"times":{"Tests\\Unit\\IndexControllerTest::testAdd":0.002,"Tests\\Unit\\IndexControllerTest::testsignupAction":0.507,"Tests\\Unit\\IndexControllerTest::testLogOutAction":0.001}}

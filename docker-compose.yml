@@ -1,0 +1,32 @@
+version: "3.3"
+services:
+  api:
+    build:
+      dockerfile: php.Dockerfile
+      context: .
+    restart: always
+    volumes:
+      - "./api/:/var/www/html/"
+    ports:
+      - "3003:80"
+  frontend:
+    build:
+      dockerfile: php.Dockerfile
+      context: .
+    restart: always
+    volumes:
+      - "./frontend/:/var/www/html/"
+    ports:
+      - "4004:80"
+  mongo:
+    container_name: mongo
+    image: mongo:4.4
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    ports:
+      - "27017:27017"
+
+volumes:
+  mysql-data:

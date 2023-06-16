@@ -1,0 +1,37 @@
+<form action='/index/doLogin' method="POST">
+    <div class="container col-5">
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input type="email" id="form2Example1" class="form-control" name='mail' />
+            <label class="form-label" for="form2Example1">Email address</label>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" class="form-control" name='pass' />
+            <label class="form-label" for="form2Example2">Password</label>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="form2Example31" name='admin' />
+                    <label class="form-check-label" for="form2Example31"> Login As Admin </label>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4" value="Log In">
+
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>Not a member? <a href="/index/index">Register</a></p>
+        </div>
+    </div>
+    </div>
+</form>
