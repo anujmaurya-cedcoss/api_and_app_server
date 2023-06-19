@@ -3,7 +3,7 @@ namespace MyApp\Controllers;
 
 use Phalcon\Mvc\Controller;
 
-// session_start();
+session_start();
 class IndexController extends Controller
 {
     public function indexAction()
@@ -20,7 +20,7 @@ class IndexController extends Controller
         ];
         if ($arr['pass'] != '' && $arr['name'] != '') {
             $ch = curl_init();
-            $url = "http://172.25.0.2/register";
+            $url = "http://172.25.0.4/register";
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
@@ -31,7 +31,6 @@ class IndexController extends Controller
             $output = curl_exec($ch);
             curl_close($ch);
             $output = json_decode($output, true);
-            return $output;
             if ($output) {
                 $str = $output['app_key'] . ':' . $output['client_secret'];
                 $this->response->redirect("/index/token?key=$str");
@@ -51,7 +50,7 @@ class IndexController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "http://172.25.0.2/getToken?key=$api_key",
+            CURLOPT_URL => "http://172.25.0.4/getToken?key=$api_key",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_FOLLOWLOCATION => true,
@@ -76,7 +75,7 @@ class IndexController extends Controller
         $per_page = $_GET['per_page'];
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "http://172.25.0.2/products/get?page=$page&per_page=$per_page",
+            CURLOPT_URL => "http://172.25.0.4/products/get?page=$page&per_page=$per_page",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_FOLLOWLOCATION => true,
